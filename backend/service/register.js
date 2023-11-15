@@ -12,41 +12,41 @@ const userTable =  'stable_diff_users';
 async function register(userInfo){
     const name = userInfo.name;
     const email = userInfo.email;
-    const username = userInfo.username;
+    const user_name = userInfo.user_name;
     const password = userInfo.password;
-    if (!username || !name || !email || !password){
+    if (!user_name || !name || !email || !password){
         return util.buildResponse(401, {
             message: "All fields are required"
         })
     }
 
-    const dynamoUser = await getUser(username);
-    if (dynamoUser && dynamoUser.username) {
+    const dynamoUser = await getUser(user_name);
+    if (dynamoUser && dynamoUser.user_name) {
         return util.buildResponse(401, {
             message: "Username already exists, please enter a different username"
         })
     }
 
-    const enccryptedPW = bcrypt.hashSync(password.trim(), 10);
+    const encryptedPW = bcrypt.hashSync(password.trim(), 10);
     const user = {
         name: name,
-        email: MediaList,
-        username: username.toLowerCase().trim(),
-        password: enccryptedPW
+        email: email,
+        user_name: user_name.toLowerCase().trim(),
+        password: encryptedPW
     }
 
     const saveUserResponse = await saveUser(user);
     if (!saveUserResponse){
-        return util.buildResponse(503, { message : 'server error. Please try again later' });
+        return util.buildResponse(503, { message : 'Server error. Please try again later' });
     }
-    return util.buildResponse(200, { username: username });
+    return util.buildResponse(200, { user_name: user_name });
 }
 
-async function getUser(username) {
+async function getUser(user_name) {
     const params = {
         TableName: userTable,
         Key: {
-            username: username
+            user_name: user_name
         }
     }
     return await dynamodb.get(params).promise().then(response => {
@@ -57,15 +57,18 @@ async function getUser(username) {
 }
 
 async function saveUser(user){
-    const param = {
+    const params = {
         TableName: userTable,
         Item: user
     }
-    return await dynamodb.put(params).promise().then(response => {
+    try {
+        await dynamodb.put(params).promise();
         return true;
-    }, error => {
-        console.error('There is an error saving the user: ', error);
-    })
+    }
+    catch (error) {
+        console.error('There was an error: ', error);
+        throw error;
+    }
 }
 
 module.exports.register = register;

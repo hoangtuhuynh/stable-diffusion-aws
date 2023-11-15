@@ -18,7 +18,7 @@ function verifyToken(username, token) {
             }
         }
 
-        if (response.username !== username) {
+        if (response.user_name !== username) {
             return {
                 verified: false,
                 message: 'Invalid username'

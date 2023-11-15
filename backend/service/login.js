@@ -10,16 +10,16 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 const userTable =  'stable_diff_users';
 
 async function login(user) {
-    const username = user.username;
+    const user_name = user.user_name;
     const password = user.password;
-    if (!user || !username || !password){
+    if (!user || !user_name || !password){
         return util.buildResponse(401, {
             message: 'Username and password are required'
         })
     }
 
-    const dynamoUser = await getUser(username.toLowerCase().trim());
-    if (!dynamoUser || !dynamoUser.username) {
+    const dynamoUser = await getUser(user_name.toLowerCase().trim());
+    if (!dynamoUser || !dynamoUser.user_name) {
         return util.buildResponse(403, { message: 'User does not exist'});
     }
 
@@ -28,7 +28,7 @@ async function login(user) {
     }
 
     const userInfo = {
-        username: dynamoUser.username,
+        user_name: dynamoUser.user_name,
         name: dynamoUser.name
     }
     const token = auth.generateToken(userInfo)
@@ -40,11 +40,11 @@ async function login(user) {
 
 }
 
-async function getUser(username) {
+async function getUser(user_name) {
     const params = {
         TableName: userTable,
         Key: {
-            username: username
+            user_name: user_name
         }
     }
     return await dynamodb.get(params).promise().then(response => {
