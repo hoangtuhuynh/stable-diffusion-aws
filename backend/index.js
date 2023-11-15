@@ -1,12 +1,14 @@
-const registerService = require('./service/register')
-const loginService = require('./service/login')
-const verifyService = require('./service/verify')
+const registerService = require('./service/register');
+const loginService = require('./service/login');
+const verifyService = require('./service/verify');
 const util = require('./utils/util');
 
-const healthPath = '/health'
-const registerPath = '/registration'
-const loginPath = '/login'
-const verifyPath = '/verify'
+
+
+const healthPath = '/health';
+const registerPath = '/registration';
+const loginPath = '/login';
+const verifyPath = '/verify';
 
 
 exports.handler = async (event) => {
@@ -18,7 +20,7 @@ exports.handler = async (event) => {
       break;
     case event.httpMethod === 'POST' && event.path === registerPath:
       const registerBody = JSON.parse(event.body);
-      response = await registerService.register(registerBody);
+      response = registerService.register(registerBody);
       break;
     case event.httpMethod === 'POST' && event.path === loginPath:
       const loginBody = JSON.parse(event.body);
@@ -33,4 +35,6 @@ exports.handler = async (event) => {
   }
   return response;
 };
+
+  
 
