@@ -24,3 +24,19 @@ h1 {
   text-align: center;
   color: #51b676; /* This is a shade of blue; change it to whatever color you want */
 }
+
+.header {
+  margin: 2em 0 2em 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid;
+}
+
+.header a {
+  margin : 0 1em 0 1em;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+.content {
+  margin-left: 2em;
+  font-size: 1.5em;
+}

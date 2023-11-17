@@ -1,134 +1,29 @@
+import { BrowserRouter, NavLink, Route, Switch, Link} from "react-router-dom";
+import Home from "./Home";
+import Register from "./Register";
+import Login from "./Login";
+import Service from "./Service";
 
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-import axios from 'axios';
-import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Spinner from 'react-bootstrap/Spinner';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-
-class App extends Component {
-  state = {
-    isLoadingVisible: false,
-    val: '',
-    imgSrc: '',
-  };
-
-  showLoading = () => {
-    this.setState({ isLoadingVisible: true });
-  };
-
-  hideLoading = () => {
-    this.setState({ isLoadingVisible: false });
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.showLoading();
-
-    console.log(prompt);
-    console.log(process.env.NODE_ENV);
-
-    const api =
-      process.env.NODE_ENV === 'development'
-        ? '/test/stabled'
-        : 'https://v56lx6r0uj.execute-api.us-east-1.amazonaws.com/test/stableapp';
-    const data = { data: e.target.searchQuery.value };
-    console.log(data);
-    axios({
-      method: 'POST',
-      data: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' },
-      url: api,
-    })
-      .then((response) => {
-        console.log(response);
-        this.setState({ imgSrc: response.data.body });
-
-        setTimeout(() => {
-          this.hideLoading();
-          this.setState({ val: '' });
-        }, 500);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  render() {
-    return (
-      <Container className='p-5' id='container' name='container'>
-        <h1> Welcome to Stable Diffusion AI</h1>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group className='mb-3' controlId='formBasicEmail'>
-            <Form.Label>Enter Text to convert Image</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter text to convert image'
-              required
-              autoFocus={true}
-              name='searchQuery'
-              controlId='searchQuery'
-              defaultValue={this.state.val}
-            />
-            <Form.Text className='text-muted'>
-              We'll attempt our best to create image you will love it!
-            </Form.Text>
-          </Form.Group>
-          <Button
-            variant='primary'
-            type='submit'
-            className='btn btn-primary btn-large centerButton'
-          >
-            Submit
-          </Button>
-
-          <Image
-            id='myImage'
-            className='img-fluid shadow-4'
-            src={this.state.imgSrc}
-          />
-        </Form>
-        {this.state.isLoadingVisible && (
-          <div id='backdrop'>
-            <Button variant='primary' disabled>
-              <Spinner
-                target='container'
-                as='span'
-                animation='grow'
-                size='sm'
-                role='status'
-                aria-hidden='true'
-              />
-              Loading...
-            </Button>
-          </div>
-        )}
-      </Container>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+      <div className="header">
+        <NavLink exact activeClassName="active" to="/">Home</NavLink>
+        <NavLink activeClassName="active" to="/register">Register</NavLink>
+        <NavLink activeClassName="active" to="/login">Login</NavLink>
+        <NavLink activeClassName="active" to="/service">Service</NavLink>
+      </div>
+      <div className="content">
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/register" component={Register}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/service" component={Service}/>
+        </Switch>
+      </div>
+      </BrowserRouter>
+    </div>
+  );
 }
-
 export default App;
