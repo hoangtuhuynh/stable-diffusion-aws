@@ -3,8 +3,28 @@
 import React, {useState} from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import "./register.css";
 const registerUrl = "https://m9os8u3jwe.execute-api.us-east-1.amazonaws.com/prod/registration"
 
+// Header Component
+const FormHeader = props => (
+    <h2 id="headerTitle">{props.title}</h2>
+);
+
+// Input Component
+const FormInput = props => (
+    <div className="row">
+        <label>{props.description}</label>
+        <input type={props.type} value={props.value} onChange={props.onChange} placeholder={props.placeholder}/>
+    </div>  
+);
+
+// Button Component
+const FormButton = props => (
+    <div id="button" className="row">
+        <button>{props.title}</button>
+    </div>
+); 
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -45,18 +65,44 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div id="registerform">
+            <FormHeader title="Register" />
             <form onSubmit={submitHandler}>
-                <h5>Register</h5>
-                Name: <input type="text" value={name} onChange={event => setName(event.target.value)} /> <br/>
-                Email <input type="text" value={email} onChange={event => setEmail(event.target.value)} /> <br/>
-                Username <input type="text" value={username} onChange={event => setUsername(event.target.value)} /> <br/>
-                Password: <input type="text" value={password} onChange={event => setPassword(event.target.value)} /> <br/>
-                <input type="submit" value="Register"/>
+                <FormInput 
+                    description="Name" 
+                    type="text" 
+                    value={name} 
+                    onChange={event => setName(event.target.value)} 
+                    placeholder="Enter your name"
+                />
+                <FormInput 
+                    description="Email" 
+                    type="text" 
+                    value={email} 
+                    onChange={event => setEmail(event.target.value)} 
+                    placeholder="Enter your email"
+                />
+                <FormInput 
+                    description="Username" 
+                    type="text" 
+                    value={username} 
+                    onChange={event => setUsername(event.target.value)} 
+                    placeholder="Choose a username"
+                />
+                <FormInput 
+                    description="Password" 
+                    type="password" 
+                    value={password} 
+                    onChange={event => setPassword(event.target.value)} 
+                    placeholder="Enter your password"
+                />
+                <FormButton title="Register"/>
             </form>
             {message && <p className="message">{message}</p>}
         </div>
-    )
+    );
 }
+
+
 
 export default Register;
