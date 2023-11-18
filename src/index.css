@@ -1,29 +1,4 @@
-#backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 999;
-  background-color: rgba(30, 209, 72, 0.262);
-  text-align: center;
-}
-#backdrop button {
-  top: calc(50% - (58px / 2));
-  right: calc(50% - (58px / 2));
-  display: block;
-    position: fixed;
-}
-#myImage {
-  max-inline-size: '100%';
-  block-size: 'auto';
-}
 
-
-h1 {
-  text-align: center;
-  color: #51b676; /* This is a shade of blue; change it to whatever color you want */
-}
 
 .header {
   margin: 2em 0 2em 2em;
@@ -39,4 +14,14 @@ h1 {
 .content {
   margin-left: 2em;
   font-size: 1.5em;
+}
+
+body{
+  background: rgb(34,193,195);
+  background: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+  font-family: "work sans";
+}
+
+html{
+  font-size: 65%;
 }

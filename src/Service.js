@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
+import "./service.css";
 
 class Service extends Component {
   state = {
