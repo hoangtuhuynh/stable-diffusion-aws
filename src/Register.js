@@ -3,7 +3,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import "./register.css";
+import "./css_mark/register.css";
 const registerUrl = "https://m9os8u3jwe.execute-api.us-east-1.amazonaws.com/prod/registration"
 
 // Header Component

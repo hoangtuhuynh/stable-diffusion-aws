@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
-import "./service.css";
+import "./css_mark/service.css";
 
 class Service extends Component {
   state = {
@@ -57,7 +57,7 @@ class Service extends Component {
   render() {
     return (
       <Container className='p-5' id='container' name='container'>
-        <h1> Welcome to Stable Diffusion AI</h1>
+        <h1>Stable Diffusion AI</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicEmail'>
             <Form.Label>Enter Text to convert Image</Form.Label>
