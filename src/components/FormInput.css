@@ -1,19 +1,18 @@
-.row{
+.row {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 2rem;
+    padding: 2rem 4rem 0 4rem;
     max-width: 100%;
-    
+    --bs-gutter-x: 0;
 }
   
 .row input{
-    width: 80%;
+    /* width: 80%; */
     box-sizing: border-box;
     border: none;
-    font-size: 1.3rem;
-    padding-left: 1.5rem;
-    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    padding: 0 1rem 0.7rem 1rem;
+    /* padding-bottom: 1rem; */
     box-shadow: inset 0px -3px 0px 0px rgba(187,187,187,0.2);
     transition: box-shadow 0.2s ease-in;
 }
@@ -35,7 +34,6 @@
   
 .row label{
     align-self: start;
-    padding-left: 4.5rem;
     padding-bottom: 0.5rem;
     color: rgba(187,187,187,0.9);
 }
