@@ -4,27 +4,30 @@ import React, {useState} from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./css_mark/register.css";
+import FormHeader from "./components/FormHeader";
+import FormInput from "./components/FormInput";
+import FormButton from "./components/FormButton";
 const registerUrl = "https://m9os8u3jwe.execute-api.us-east-1.amazonaws.com/prod/registration"
 
 // Header Component
-const FormHeader = props => (
-    <h2 id="headerTitle">{props.title}</h2>
-);
+// const FormHeader = props => (
+//     <h2 id="headerTitle">{props.title}</h2>
+// );
 
 // Input Component
-const FormInput = props => (
-    <div className="row">
-        <label>{props.description}</label>
-        <input type={props.type} value={props.value} onChange={props.onChange} placeholder={props.placeholder}/>
-    </div>  
-);
+// const FormInput = props => (
+//     <div className="row">
+//         <label>{props.description}</label>
+//         <input type={props.type} value={props.value} onChange={props.onChange} placeholder={props.placeholder}/>
+//     </div>  
+// );
 
 // Button Component
-const FormButton = props => (
-    <div id="button" className="row">
-        <button>{props.title}</button>
-    </div>
-); 
+// const FormButton = props => (
+//     <div id="button" className="row">
+//         <button>{props.title}</button>
+//     </div>
+// ); 
 
 const Register = () => {
     const [name, setName] = useState('');

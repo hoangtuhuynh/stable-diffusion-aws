@@ -2,6 +2,9 @@
 import React, {useState} from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import FormHeader from "./components/FormHeader";
+import FormInput from "./components/FormInput";
+import FormButton from "./components/FormButton";
 
 import "./css_mark/login.css";
 import { setUserSession } from './service/AuthService'
@@ -85,23 +88,6 @@ const Login = () => {
   );
 }
   
-const FormHeader = props => (
-    <h2 id="headerTitle">{props.title}</h2>
-);
-
-
-const FormButton = props => (
-  <div id="button" class="row">
-    <button>{props.title}</button>
-  </div>
-);
-
-const FormInput = props => (
-  <div className="row">
-      <label>{props.description}</label>
-      <input type={props.type} value={props.value} onChange={props.onChange} placeholder={props.placeholder}/>
-  </div>  
-);
 
 const OtherMethods = props => (
   <div id="alternativeLogin">
