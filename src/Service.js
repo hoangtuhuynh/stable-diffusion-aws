@@ -37,6 +37,8 @@ const Service = () => {
     sessionStorage.removeItem('username');
     history.push('/login');
     console.log('Should have redirected to /login');
+    // Reload the page
+    window.location.reload();
   };
 
   const showLoading = () => {
