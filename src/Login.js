@@ -39,7 +39,9 @@ const Login = () => {
           setUserSession(response.data.user, response.data.token);
           // history.push('/service');
           setSuccessMessage("Login successful!"); // Set success message
-          sessionStorage.setItem('username', response.data.user.user_name);
+          const dataName = response.data.user.user_name
+          const nameInitial = dataName.slice(0,1)
+          sessionStorage.setItem('username', nameInitial.toUpperCase());
           console.log('Saving username:', response.data.user.user_name);
           setTimeout(() => {
             setSuccessMessage(null); // Optional: Clear message after a few seconds
