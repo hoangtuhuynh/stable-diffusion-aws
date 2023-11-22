@@ -32,13 +32,15 @@ class Service extends Component {
     }));
   };
 
-  handleLogout = (event) => {
-    event.stopPropagation();
+  handleLogout = () => {
+   
+    console.log('Logging out...'); // Debugging log
     // Clear user session
     setUserSession(null, null);
     // Clear username from sessionStorage
     sessionStorage.removeItem('username');
     this.props.history.push('/login');
+    console.log('Should have redirected to /login');
   };
 
 
