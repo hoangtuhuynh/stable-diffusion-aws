@@ -6,6 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import { setUserSession } from './service/AuthService';
+import { withRouter } from "react-router-dom";
 import "./css_mark/service.css";
 
 class Service extends Component {
@@ -37,7 +38,6 @@ class Service extends Component {
     setUserSession(null, null);
     // Clear username from sessionStorage
     sessionStorage.removeItem('username');
-    // Redirect to login
     this.props.history.push('/login');
   };
 
@@ -146,4 +146,4 @@ class Service extends Component {
   }
 }
 
-export default Service;
+export default withRouter(Service);;
