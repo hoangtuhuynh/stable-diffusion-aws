@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
+import { setUserSession } from './service/AuthService';
+import { withRouter } from "react-router-dom";
 import "./css_mark/service.css";
 
 class Service extends Component {
@@ -12,7 +14,33 @@ class Service extends Component {
     isLoadingVisible: false,
     val: '',
     imgSrc: '',
+    showLogout: false,
+    username: null // Add username to state
   };
+  componentDidMount() {
+    // Read the username from sessionStorage when the component mounts
+    const savedUsername = sessionStorage.getItem('username');
+    if (savedUsername) {
+      this.setState({ username: savedUsername });
+    }
+    console.log('Retrieved username:', sessionStorage.getItem('username'));
+  }
+
+  toggleLogout = () => {
+    this.setState(prevState => ({
+      showLogout: !prevState.showLogout
+    }));
+  };
+
+  handleLogout = (event) => {
+    event.stopPropagation();
+    // Clear user session
+    setUserSession(null, null);
+    // Clear username from sessionStorage
+    sessionStorage.removeItem('username');
+    this.props.history.push('/login');
+  };
+
 
   showLoading = () => {
     this.setState({ isLoadingVisible: true });
@@ -55,8 +83,18 @@ class Service extends Component {
       });
   };
   render() {
+    const { username, showLogout } = this.state;
+    const userInfoClass = showLogout ? "user-info showLogout" : "user-info"; // Toggle class based on state
+
     return (
       <Container className='p-5' id='container' name='container'>
+        <div className={userInfoClass} style={{ position: 'fixed', top: 10, right: 10 }}>
+          <span className="username" onClick={this.toggleLogout}>{username}</span>
+          <button 
+            onClick={this.handleLogout} 
+            className="logout-button" 
+            style={{ display: showLogout ? 'block' : 'none' }}>Logout</button>
+        </div>
         <h1>Stable Diffusion AI</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicEmail'>
@@ -110,4 +148,4 @@ class Service extends Component {
   }
 }
 
-export default Service;
+export default withRouter(Service);;
