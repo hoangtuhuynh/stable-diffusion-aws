@@ -1,0 +1,25 @@
+.row button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    /* width: 80%; */
+    height: 40px;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 700;
+    background: rgb(34,193,195);
+    background: linear-gradient(90deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+    border: 0px;
+    cursor: pointer;
+    transition: opacity 0.25s ease-out;
+    margin-bottom: 1rem;
+}
+  
+.row button:hover{
+    opacity: 0.8;
+}
+  
+#button{
+    padding-bottom: 1.5rem;
+}
