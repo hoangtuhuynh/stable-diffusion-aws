@@ -9,10 +9,18 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <div className="header">
-        <NavLink exact activeClassName="active" to="/">Home</NavLink>
-        <NavLink activeClassName="active" to="/register">Register</NavLink>
-        <NavLink activeClassName="active" to="/login">Login</NavLink>
-        <NavLink activeClassName="active" to="/service">Service</NavLink>
+        <div className="nav-block">
+          <NavLink exact activeClassName="active" to="/">Home</NavLink>
+        </div>
+        <div className="nav-block">
+          <NavLink activeClassName="active" to="/register">Register</NavLink>
+          </div>
+        <div className="nav-block">
+          <NavLink activeClassName="active" to="/login">Login</NavLink>
+        </div>
+        <div className="nav-block">
+          <NavLink activeClassName="active" to="/service">Service</NavLink>
+        </div>
       </div>
       <div className="content">
         <Switch>
