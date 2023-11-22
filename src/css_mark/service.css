@@ -24,3 +24,37 @@
     text-align: center;
     color: #b65198; /* This is a shade of blue; change it to whatever color you want */
   }
+
+  .user-info {
+    position: relative;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    background-color: #ffd700;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+  
+  .username {
+    cursor: pointer;
+    position: relative; /* Set the position to relative for absolute positioning of children */
+    padding-bottom: 5px;
+  }
+  
+  .logout-button {
+    display: none; /* Initially hide the logout button */
+    position: absolute; /* Position it absolutely in relation to its parent */
+    top: 100%; /* Position it just below the username */
+    right: 0;
+    background-color: white;
+    min-width: 100px; /* Minimum width of the dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Optional: add some shadow for dropdown effect */
+    z-index: 1002; /* Ensure it's above other content */
+  }
+  
+  /* Style for the logout button when it is visible */
+  /* When showLogout is true, the logout button will be visible */
+.user-info.showLogout .logout-button {
+  display: block;
+}

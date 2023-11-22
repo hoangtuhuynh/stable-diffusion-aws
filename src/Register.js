@@ -33,6 +33,8 @@ const Register = () => {
     const [username, setUsername] = useState('');
     const [message, setMessage] = useState('');
 
+    const [successMessage, setSuccessMessage] = useState(null); 
+
     const history = useHistory();
 
     const submitHandler = event => {
@@ -53,7 +55,7 @@ const Register = () => {
             password: password
         }
         axios.post(registerUrl, requestBody, requestConfig).then(response =>{
-            setMessage("Successfully Registration");
+            setSuccessMessage("Successfully Registration");
             history.push('/login');
         }).catch(error =>{
             if (error.response.status === 401){
@@ -98,7 +100,17 @@ const Register = () => {
                 />
                 <FormButton title="Register"/>
             </form>
-            {message && <p className="message">{message}</p>}
+            {message && 
+                <div className="message-box">
+                    <p className="message">{message}</p>
+                    <button onClick={() => setMessage(null)} className="close-btn">X</button>
+                </div>
+            }
+            {successMessage && 
+                <div className="success-message-box">
+                    <p className="message">{successMessage}</p>
+                </div>
+            }
         </div>
     );
 }

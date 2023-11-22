@@ -4,7 +4,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import "./css_mark/login.css";
-import { setUserSession } from './service/AuthService'
+import { setUserSession } from './service/AuthService';
 const loginUrl = 'https://m9os8u3jwe.execute-api.us-east-1.amazonaws.com/prod/login'
 
 const Login = () => {
@@ -36,9 +36,11 @@ const Login = () => {
           setUserSession(response.data.user, response.data.token);
           // history.push('/service');
           setSuccessMessage("Login successful!"); // Set success message
+          sessionStorage.setItem('username', response.data.user.user_name);
+          console.log('Saving username:', response.data.user.user_name);
           setTimeout(() => {
             setSuccessMessage(null); // Optional: Clear message after a few seconds
-            history.push('/service');
+            history.push('/service', { username: username });
           }, 3000);
       }).catch(error =>{
           if (error.response.status === 401 || error.response.status === 403){
