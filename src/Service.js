@@ -60,27 +60,29 @@ class Service extends Component {
         <h1>Stable Diffusion AI</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicEmail'>
-            <Form.Label>Enter Text to convert Image</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter text to convert image'
-              required
-              autoFocus={true}
-              name='searchQuery'
-              controlId='searchQuery'
-              defaultValue={this.state.val}
-            />
+            {/* <Form.Label>Enter Text to convert Image</Form.Label> */}
+            <div className="form-separate">
+              <Form.Control
+                type='text'
+                placeholder='Enter text to convert image'
+                required
+                autoFocus={true}
+                name='searchQuery'
+                controlId='searchQuery'
+                defaultValue={this.state.val}
+              />
+              <Button
+                variant='dark'
+                type='submit'
+                className='btn btn-primary btn-large centerButton'
+              >
+                Submit
+              </Button>
+            </div>
             <Form.Text className='text-muted'>
               We'll attempt our best to create image you will love it!
             </Form.Text>
           </Form.Group>
-          <Button
-            variant='primary'
-            type='submit'
-            className='btn btn-primary btn-large centerButton'
-          >
-            Submit
-          </Button>
 
           <Image
             id='myImage'
