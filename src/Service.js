@@ -75,10 +75,11 @@ const Service = () => {
     <Container className='p-5' id='container' name='container'>
       <div className={showLogout ? "user-info showLogout" : "user-info"} style={{ position: 'fixed', top: 10, right: 10 }}>
         <span className="username" onClick={toggleLogout}>{username}</span>
-        <button 
-          onClick={handleLogout} 
-          className="logout-button" 
-          style={{ display: showLogout ? 'block' : 'none' }}>Logout</button>
+        <div className="options" style={{ display: showLogout ? 'flex' : 'none' }}>
+          <button 
+            onClick={handleLogout} 
+            className="logout-button">Logout</button>
+        </div>
       </div>
       {/* ... Rest of your JSX ... */}
       <h1>Stable Diffusion AI</h1>
