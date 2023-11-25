@@ -1,21 +1,21 @@
 import React from "react";
 import './Home.css'
 import { Link } from "react-router-dom";
-import exampleImg from "./banana.jpeg";
+import exampleImg from "./image.png";
 const Home = () => {
   return (
     <div>
       <header>
-        <h1 style={{ fontSize: '3em' }}>Welcome to Stable Diffusion AI</h1>
+        <h1 style={{ fontSize: '3em', textIndent: '-350px', marginLeft: '100px'}}>
+          Welcome to <br></br>Stable Diffusion AI
+          </h1>
       </header>
 
       <section>
         <h2>About our Service</h2>
+        Placeholder
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          
         </p>
       </section>
 
@@ -31,13 +31,20 @@ const Home = () => {
       <section>
         <h2>Our Github</h2>
         <p>
-        https://github.com/hoangtuhuynh/stable-diffusion-aws
+        <Link>https://github.com/hoangtuhuynh/stable-diffusion-aws</Link>
           <br />
           
         </p>
       </section>
 
-    <section>
+      <section name = "serviceButton">
+      <Link to="http://localhost:3000/service">
+            <button class="button-64" role="button"><span class="text">Image Creation Service</span></button>
+            
+      </Link>
+      </section>
+
+    <section name = "picSection">
         <img src={exampleImg} alt="Sample Picture"/>
     </section>
         
