@@ -23,9 +23,9 @@ const Home = () => {
       </section>
 
     <section name = "picSection">
-        <img src={exampleImg} alt="Sample Picture"/>
+        <img src={exampleImg} alt="Sample"/>
     </section>
-        
+    {/* ap  */}
 
       <footer className="homeFooter">
         <p>
