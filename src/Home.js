@@ -11,13 +11,7 @@ const Home = () => {
           </h1>
       </header>
 
-      <section>
-        <h2>About our Service</h2>
-        Placeholder
-        <p>
-          
-        </p>
-      </section>
+      
 
       <section>
         <h2>Services</h2>
@@ -28,22 +22,6 @@ const Home = () => {
         </ul>
       </section>
 
-      <section>
-        <h2>Our Github</h2>
-        <p>
-        <Link>https://github.com/hoangtuhuynh/stable-diffusion-aws</Link>
-          <br />
-          
-        </p>
-      </section>
-
-      <section name = "serviceButton">
-      <Link to="http://localhost:3000/service">
-            <button class="button-64" role="button"><span class="text">Image Creation Service</span></button>
-            
-      </Link>
-      </section>
-
     <section name = "picSection">
         <img src={exampleImg} alt="Sample Picture"/>
     </section>
@@ -52,8 +30,8 @@ const Home = () => {
       <footer>
         <p>
           &copy; AWS Stable Diffusion.{" "}
-          <Link to="http://localhost:3000/service">
-            <button>Go to Image Creation Service</button>
+          <Link to="https://github.com/hoangtuhuynh/stable-diffusion-aws">
+            <button>Check our GitHub</button>
           </Link>
         </p>
       </footer>
