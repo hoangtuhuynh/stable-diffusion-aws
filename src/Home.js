@@ -5,16 +5,16 @@ import exampleImg from "./example.jpg";
 const Home = () => {
   return (
     <div>
-      <header>
-        <h1 style={{ fontSize: '3em', textIndent: '-350px', marginLeft: '100px'}}>
+      <header className = "homeHeader">
+        <h1 className="homeH1">
           Welcome to <br></br>Stable Diffusion AI
           </h1>
       </header>
 
       
 
-      <section>
-        <h2>Services</h2>
+      <section className="homeServices">
+        <h2 className="homeH2">Services</h2>
         <ul>
           <li>Create AI Generated Image</li>
           <li>Store and categorize Generated Images</li>
@@ -27,7 +27,7 @@ const Home = () => {
     </section>
         
 
-      <footer>
+      <footer className="homeFooter">
         <p>
           &copy; AWS Stable Diffusion.{" "}
           <Link to="https://github.com/hoangtuhuynh/stable-diffusion-aws">
