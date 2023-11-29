@@ -15,6 +15,7 @@ const Service = () => {
   const [val, setVal] = useState('');
   const [imgSrc, setImgSrc] = useState('');
   const [showLogout, setShowLogout] = useState(false);
+  const [showAccount, setShowAccount] = useState(false);
   const [username, setUsername] = useState(null);
   const history = useHistory();
 
@@ -27,8 +28,9 @@ const Service = () => {
     console.log('Retrieved username:', savedUsername);
   }, []);
 
-  const toggleLogout = () => {
+  const toggleOptions = () => {
     setShowLogout(prevState => !prevState);
+    setShowAccount(prevState => !prevState);
   };
 
   const handleLogout = () => {
@@ -40,6 +42,14 @@ const Service = () => {
     // Reload the page
     window.location.reload();
   };
+
+/* does not actually work right now, will look into it */
+  const moveToAccount = () => {
+    console.log('Moving to Account');
+    history.push('/account')
+    console.log('Should have been redirected to /account')
+    window.location.reload();
+  }
 
   const showLoading = () => {
     setIsLoadingVisible(true);
@@ -74,11 +84,14 @@ const Service = () => {
   return (
     <Container className='p-5' id='container' name='container'>
       <div className={showLogout ? "user-info showLogout" : "user-info"} style={{ position: 'fixed', top: 10, right: 10 }}>
-        <span className="username" onClick={toggleLogout}>{username}</span>
+        <span className="username" onClick={toggleOptions}>{username}</span>
         <div className="options" style={{ display: showLogout ? 'flex' : 'none' }}>
           <button 
             onClick={handleLogout} 
             className="logout-button">Logout</button>
+          <button
+            onClick={moveToAccount}
+            className="account-button">Account</button>
         </div>
       </div>
       {/* ... Rest of your JSX ... */}

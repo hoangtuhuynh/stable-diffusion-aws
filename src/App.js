@@ -3,6 +3,7 @@ import Home from "./Home";
 import Register from "./Register";
 import Login from "./Login";
 import Service from "./Service";
+import Account from "./Account" /* wip, will remove when testing concludes */
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
 import React, { useState, useEffect } from "react";
@@ -46,6 +47,7 @@ function App() {
     return <div className="content">Authenicating...</div>
   }
 
+/* make sure to remove account link once done testing! */
   return (
     <div className="App">
       <BrowserRouter>
@@ -62,6 +64,9 @@ function App() {
         <div className="nav-block">
           <NavLink activeClassName="active" to="/service">Service</NavLink>
         </div>
+        <div className= "nav-block">
+          <NavLink activeClassName="active" to="/account">Account</NavLink> 
+        </div>
       </div>
       <div className="content">
         <Switch>
@@ -69,6 +74,7 @@ function App() {
           <PublicRoute path="/register" component={Register}/>
           <PublicRoute path="/login" component={Login}/>
           <PrivateRoute path="/service" component={Service}/>
+          <PublicRoute path="/account" component={Account}/>
         </Switch>
       </div>
       </BrowserRouter>
