@@ -1,7 +1,7 @@
 import React from "react";
 import './Home.css'
 import { Link } from "react-router-dom";
-import exampleImg from "./example.jpg";
+import exampleImg from "./exampleF.jpg";
 const Home = () => {
   return (
     <div>
@@ -18,7 +18,7 @@ const Home = () => {
         <ul>
           <li>Create AI Generated Image</li>
           <li>Store and categorize Generated Images</li>
-          <li>Possible service, create randomly generated prompt instead of user input</li>
+    
         </ul>
       </section>
 
