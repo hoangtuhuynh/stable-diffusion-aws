@@ -86,12 +86,13 @@ const Service = () => {
       <div className={showLogout ? "user-info showLogout" : "user-info"} style={{ position: 'fixed', top: 10, right: 10 }}>
         <span className="username" onClick={toggleOptions}>{username}</span>
         <div className="options" style={{ display: showLogout ? 'flex' : 'none' }}>
-          <button 
-            onClick={handleLogout} 
-            className="logout-button">Logout</button>
           <button
             onClick={moveToAccount}
             className="account-button">Account</button>
+          <div className="sbreaker"></div>
+          <button 
+            onClick={handleLogout} 
+            className="logout-button">Logout</button>
         </div>
       </div>
       {/* ... Rest of your JSX ... */}

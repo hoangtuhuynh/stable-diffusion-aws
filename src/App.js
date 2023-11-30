@@ -64,9 +64,9 @@ function App() {
         <div className="nav-block">
           <NavLink activeClassName="active" to="/service">Service</NavLink>
         </div>
-        <div className= "nav-block">
+        {/* <div className= "nav-block">
           <NavLink activeClassName="active" to="/account">Account</NavLink> 
-        </div>
+        </div> */}
       </div>
       <div className="content">
         <Switch>
