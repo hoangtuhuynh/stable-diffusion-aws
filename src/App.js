@@ -74,7 +74,7 @@ function App() {
           <PublicRoute path="/register" component={Register}/>
           <PublicRoute path="/login" component={Login}/>
           <PrivateRoute path="/service" component={Service}/>
-          <PublicRoute path="/account" component={Account}/>
+          <PrivateRoute path="/account" component={Account}/>
         </Switch>
       </div>
       </BrowserRouter>
