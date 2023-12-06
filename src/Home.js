@@ -12,22 +12,30 @@ const Home = () => {
       </header>
 
       
-
-      <section className="homeServices">
+      {/* Might just not need to list services */}
+      {/* <section className="homeServices">
         <h2 className="homeH2">Services</h2>
         <ul>
           <li>Create AI Generated Image</li>
           <li>Store and categorize Generated Images</li>
     
         </ul>
-      </section>
+      </section> */}
 
     <section name = "picSection">
         <img src={exampleImg} alt="Sample"/>
     </section>
     {/* ap  */}
 
-      <footer className="homeFooter">
+    {/* optional second button to go to service, need to fix link  */}
+    {/* <section name = "serviceButton">
+      <Link to="http://localhost:3000/service">
+            <button class="button-64" role="button"><span class="text">Image Creation Service</span></button>
+
+      </Link>
+    </section> */}
+
+    <footer className="homeFooter">
         <p>
           &copy; AWS Stable Diffusion.{" "}
           <Link to="https://github.com/hoangtuhuynh/stable-diffusion-aws">
