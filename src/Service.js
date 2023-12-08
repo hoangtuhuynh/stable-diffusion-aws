@@ -81,7 +81,6 @@ const Service = () => {
             className="logout-button">Logout</button>
         </div>
       </div>
-      {/* ... Rest of your JSX ... */}
       <h1>Stable Diffusion AI</h1>
         <Form onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicEmail'>

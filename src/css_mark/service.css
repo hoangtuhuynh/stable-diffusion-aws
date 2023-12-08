@@ -12,7 +12,7 @@
     top: calc(50% - (58px / 2));
     right: calc(50% - (58px / 2));
     display: block;
-      position: fixed;
+    position: fixed;
   }
   #myImage {
     max-inline-size: '100%';
@@ -113,4 +113,3 @@
 .user-info.showLogout .logout-button {
   display: block;
 }
-

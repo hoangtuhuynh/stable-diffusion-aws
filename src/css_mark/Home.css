@@ -20,20 +20,21 @@
     font-size: 6rem;
     background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;;
-    margin-top: 0px;
-    text-Indent: -350px;
-    margin-Left: 100px;
-    font-size: 3em;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
   }
   .homeH2 {
     color: #333;
   }
   
-  .picSection {
-    width: 100%;
-
+  .picSection img {
+    width: 100vw;        /* Full width of the viewport */
+    max-height: 100vh;   /* Max height of the viewport */
+    object-fit: cover;   /* Cover the entire area of the element */
+    display: block;      /* Remove extra space below the image */
+    margin: 0 auto;      /* Center the image if it's not filling the width */
   }
+  
   .homeFooter {
     background-color: #2c3e50;
     color: #fff;
@@ -47,7 +48,8 @@
 .button-64 {
     
     margin-top: 80px;
-    margin-left: 570px;
+    margin-left: auto; /* Center the button */
+    margin-right: auto; /* Center the button */
     align-items: center;
     background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
     border: 0;

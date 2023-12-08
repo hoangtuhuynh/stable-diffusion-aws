@@ -38,9 +38,9 @@ const Home = () => {
     <footer className="homeFooter">
         <p>
           &copy; AWS Stable Diffusion.{" "}
-          <Link to="https://github.com/hoangtuhuynh/stable-diffusion-aws">
+          <a href="https://github.com/hoangtuhuynh/stable-diffusion-aws">
             <button>Check our GitHub</button>
-          </Link>
+          </a>
         </p>
       </footer>
     </div>
