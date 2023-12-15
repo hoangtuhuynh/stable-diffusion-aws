@@ -9,7 +9,7 @@
 
 ## Our Service
 
-![image](src\exampleF.jpg)
+![image](/src/exampleF.jpg)
 
 ## Techniques 
 
